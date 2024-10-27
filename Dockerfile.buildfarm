@@ -49,7 +49,7 @@ RUN \
     find /buildfarm/bazel-out/ > list.txt \
  && readlink /buildfarm/bazel-out/k8-fastbuild/bin/src/main/java/build/buildfarm/buildfarm-shard-worker.runfiles/rules_java~~toolchains~remotejdk21_linux/bin/java > link.txt
 
-FROM debian:12.7 AS base
+FROM python:3.12 AS base
 
 RUN rm -f /etc/apt/apt.conf.d/docker-clean; echo 'Binary::apt::APT::Keep-Downloaded-Packages "true";' > /etc/apt/apt.conf.d/keep-cache
 RUN \
